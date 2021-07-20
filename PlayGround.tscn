@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Arts/CasualUI_14_6.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/DebugWindow.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/PlayGround.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Markers.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/CellReferenceRect.gd" type="Script" id=5]
+[ext_resource path="res://Ressources/BasicTexts_Fonts.tres" type="DynamicFont" id=6]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -155,3 +156,26 @@ cell_coord = Vector2( 2, 1 )
 visible = false
 position = Vector2( 1640, 824 )
 cell_coord = Vector2( 2, 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 240.0
+margin_top = 200.0
+margin_right = 464.0
+margin_bottom = 328.0
+custom_fonts/font = ExtResource( 6 )
+text = "Test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 243.165
+margin_top = 270.883
+margin_right = 299.165
+margin_bottom = 290.883
+text = "10.000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

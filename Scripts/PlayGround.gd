@@ -1,16 +1,20 @@
 extends Node2D
 
+remotesync var test
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	#rpc_config("test", MultiplayerAPI.RPC_MODE_REMOTESYNC)
+	if Gb.network_status == Gb.STATUS_SERVER :
+		test = 1
+		print ("reset TEST")
 	
 func _process(delta):
+	$Label.text = str(test)
+	
+	if Gb.network_status == Gb.STATUS_SERVER :
+		rset ("test", test+1)
+		
+	
 	if Input.is_action_just_pressed("mouse_left"):
 		for n in $Cases.get_children():
 			var rect : CellReferenceRect = n
@@ -29,6 +33,9 @@ func _process(delta):
 		get_tree().change_scene("res://Menu.tscn")
 
 
+#remotesync func setTest (value):
+#	test = value
+
 func _input(event):
 #	if Input.is_action_just_pressed("mouse_left"):
 #	if event is InputEventMouseButton:
@@ -37,3 +44,8 @@ func _input(event):
 #	if event is InputEventMouseMotion:
 #		Gb.mouse_pos = event.position
 	pass		
+
+
+func _on_Button_pressed():
+	test += 10000
+	pass # Replace with function body.

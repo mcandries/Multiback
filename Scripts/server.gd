@@ -2,7 +2,8 @@ extends Node
 
 var networkENet : NetworkedMultiplayerENet
 var port = 12121
-var maxPlayer = 1
+var maxPlayer = 2 ################################## 1
+
 var upnp = UPNP.new()
 var upnpDiscoverResult
 var upnpExternalIP
@@ -67,9 +68,9 @@ func StopServer():
 
 func _Peer_Connected (peerId):
 	Gb.dbg_print("Player Connected")
-	networkENet.refuse_new_connections = true
+	#networkENet.refuse_new_connections = true
 	get_tree().change_scene("res://PlayGround.tscn")
 
 func _Peer_Disconnected (peerId):
 	Gb.dbg_print("Player Disconnected")
-	networkENet.refuse_new_connections = false
+	#networkENet.refuse_new_connections = false
