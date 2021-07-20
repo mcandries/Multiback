@@ -3,7 +3,9 @@
 [ext_resource path="res://Ressources/DebugWindow_styleboxflat.tres" type="StyleBox" id=1]
 [ext_resource path="res://Ressources/DebugWindow_Fonts.tres" type="DynamicFont" id=2]
 
-[node name="DebugWindow" type="Label"]
+[node name="DebugWindow" type="Label" groups=[
+"DebugWindow",
+]]
 margin_left = 1.0
 margin_top = 3.0
 margin_right = 611.0

@@ -2,7 +2,7 @@ extends Node
 
 var networkENet : NetworkedMultiplayerENet
 var port = 12121
-var maxPlayer = 2 ################################## 1
+var maxPlayer = 1
 
 var upnp = UPNP.new()
 var upnpDiscoverResult
@@ -63,13 +63,22 @@ func StopServer():
 	Gb.dbg_print("Server stopped")
 	Gb.my_player_number = 0
 
-	
+
+func SecuryCheckASkedByMaster ():
+	# 0 if local call, 1 if call by master
+	if get_tree().get_rpc_sender_id()!=0 and get_tree().get_rpc_sender_id()!=1 :
+		Gb.dbg_print("Refuse a Network Security Check (not from Master)")
+		return false
+	else:
+		 return true
 
 
 func _Peer_Connected (peerId):
 	Gb.dbg_print("Player Connected")
 	#networkENet.refuse_new_connections = true
-	get_tree().change_scene("res://PlayGround.tscn")
+	#if get_tree().get_current_scene().get_name()!= 
+	if get_tree().get_current_scene().get_name() != "PlayGround":
+		get_tree().change_scene("res://PlayGround.tscn")
 
 func _Peer_Disconnected (peerId):
 	Gb.dbg_print("Player Disconnected")

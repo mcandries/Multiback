@@ -5,7 +5,7 @@
 [ext_resource path="res://Scenes/DebugWindow.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=4]
 
-[node name="Node2D" type="Node2D"]
+[node name="Menu" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="ColorRect" type="ColorRect" parent="."]

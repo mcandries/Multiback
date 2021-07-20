@@ -13,7 +13,7 @@ func dbg_print(text):
 
 
 func _process(delta):
-	var lab : Label = get_node("/root/Node2D/DebugWindow")
+	var lab : Label = get_tree().get_nodes_in_group("DebugWindow")[0]
 	lab.text = dbg_history
 	var lines = lab.get_line_count()
 	if lab.get_line_count()>12:
