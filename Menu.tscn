@@ -1,0 +1,136 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Ressources/Game_Fonts.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Ressources/BasicTexts_Fonts.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scenes/DebugWindow.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=4]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_top = 474.0
+margin_right = 1920.0
+margin_bottom = 488.0
+
+[node name="DebugWindow" parent="." instance=ExtResource( 3 )]
+margin_left = 6.03967
+margin_top = 800.53
+margin_right = 616.04
+margin_bottom = 1071.53
+
+[node name="Srv_UI" type="Node2D" parent="."]
+
+[node name="CreateGame_Button" type="Button" parent="Srv_UI"]
+margin_left = 769.832
+margin_top = 206.009
+margin_right = 1167.83
+margin_bottom = 313.009
+custom_fonts/font = ExtResource( 1 )
+text = "Create a game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Port_LineEdit" type="LineEdit" parent="Srv_UI"]
+margin_left = 948.0
+margin_top = 113.04
+margin_right = 1126.0
+margin_bottom = 168.04
+custom_fonts/font = ExtResource( 2 )
+text = "12121"
+max_length = 5
+placeholder_text = "Port"
+placeholder_alpha = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Port_Label" type="Label" parent="Srv_UI"]
+margin_left = 847.7
+margin_top = 121.74
+margin_right = 931.7
+margin_bottom = 150.74
+custom_fonts/font = ExtResource( 2 )
+text = "Port :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HowToJoinMyGame_Label" type="Label" parent="Srv_UI"]
+margin_left = 70.0
+margin_top = 364.0
+margin_right = 1803.0
+margin_bottom = 430.0
+custom_fonts/font = ExtResource( 2 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cli_UI" type="Node2D" parent="."]
+
+[node name="JoinGame_Button" type="Button" parent="Cli_UI"]
+margin_left = 1054.04
+margin_top = 817.716
+margin_right = 1454.04
+margin_bottom = 922.716
+custom_fonts/font = ExtResource( 1 )
+text = "Join a Game"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IP_LineEdit" type="LineEdit" parent="Cli_UI"]
+margin_left = 1215.1
+margin_top = 652.286
+margin_right = 1393.1
+margin_bottom = 707.286
+custom_fonts/font = ExtResource( 2 )
+text = "127.0.0.1"
+max_length = 15
+placeholder_text = "IP"
+placeholder_alpha = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IP_Label" type="Label" parent="Cli_UI"]
+margin_left = 1114.8
+margin_top = 666.026
+margin_right = 1198.8
+margin_bottom = 695.026
+custom_fonts/font = ExtResource( 2 )
+text = "IP :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortDest_LineEdit" type="LineEdit" parent="Cli_UI"]
+margin_left = 1215.1
+margin_top = 724.101
+margin_right = 1393.1
+margin_bottom = 779.101
+custom_fonts/font = ExtResource( 2 )
+text = "12121"
+max_length = 5
+placeholder_text = "Port"
+placeholder_alpha = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortDest_Label" type="Label" parent="Cli_UI"]
+margin_left = 1114.8
+margin_top = 732.802
+margin_right = 1198.8
+margin_bottom = 761.802
+custom_fonts/font = ExtResource( 2 )
+text = "Port :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Srv_UI/CreateGame_Button" to="." method="_on_CreateGame_Button_pressed"]
+[connection signal="pressed" from="Cli_UI/JoinGame_Button" to="." method="_on_JoinGame_Button_pressed"]
