@@ -74,10 +74,7 @@ remotesync func setTicTac (x,y,player_number):
 
 remotesync func switchPlayer():
 	#if Srv.SecuryCheckASkedByMaster():
-	if current_player == 1 :
-		current_player = 2
-	else : 
-		current_player = 1
+	current_player = wrapi(current_player +1 ,1,3)
 
 func _input(event):
 	pass		
